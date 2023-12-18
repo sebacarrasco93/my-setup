@@ -32,6 +32,9 @@ if [ -n "$fish_path" ]; then
     eval "chsh -s $fish_path"
 fi
 
+echo "Adding Herd to Fish shell"
+fish_add_path -U $HOME/Library/Application\ Support/Herd/bin/
+
 echo "Installing eden theme"
 omf install eden
 
