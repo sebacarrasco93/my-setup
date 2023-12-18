@@ -73,6 +73,15 @@ funcsave amend
 alias gpo="git push origin"
 funcsave gpo
 
+echo "Downloading Dvorak Spanish"
+curl -Lo ~/Library/Keyboard\ Layouts/Dvorak-Spanish.bundle.zip https://github.com/sebacarrasco93/my-setup/raw/main/extra/Dvorak-Spanish.bundle.zip
+
+echo "Unzip Dvorak Spanish"
+unzip ~/Library/Keyboard\ Layouts/Dvorak-Spanish.bundle.zip -d ~/Library/Keyboard\ Layouts/
+
+echo "Removing Dvorak Zip file"
+rm ~/Library/Keyboard\ Layouts/Dvorak-Spanish.bundle.zip
+
 echo "Opening Paragon NTFS"
 open "/usr/local/Caskroom/paragon-ntfs/16/FSInstaller.app"
 
