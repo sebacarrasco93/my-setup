@@ -23,6 +23,9 @@ brew install --cask telegram google-chrome herd visual-studio-code dbngin raycas
 echo "Installing MS Office Apps"
 brew install --cask microsoft-word microsoft-excel microsoft-powerpoint
 
+echo "Installing fonts"
+brew install --cask homebrew/cask-fonts/font-cascadia-code homebrew/cask-fonts/font-jetbrains-mono-nerd-font homebrew/cask-fonts/font-fira-code-nerd-font
+
 echo "Installing oh-my-fish"
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 
