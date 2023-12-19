@@ -18,7 +18,7 @@ git config --global user.email sebacarrasco93@gmail.com
 git config --global user.name "Seba Carrasco Poblete"
 
 echo "Installing casks"
-brew install --cask telegram google-chrome herd visual-studio-code dbngin raycast iterm2 whatsapp macs-fan-control shottr nrlquaker-winbox paragon-ntfs sequel-ace tableplus warp postman spotify authy firefox vlc keka wireshark insomnia monitorcontrol microsoft-edge arduino-ide hot cameracontroller youtube-downloader omnidisksweeper android-file-transfer android-file-transfer imageoptim tiles
+brew install --cask telegram google-chrome herd visual-studio-code dbngin raycast iterm2 whatsapp macs-fan-control shottr nrlquaker-winbox paragon-ntfs sequel-ace tableplus warp postman spotify authy firefox vlc keka wireshark insomnia monitorcontrol microsoft-edge arduino-ide hot cameracontroller youtube-downloader omnidisksweeper android-file-transfer android-file-transfer imageoptim tiles 4k-video-downloaderplus
 
 echo "Installing MS Office Apps"
 brew install --cask microsoft-word microsoft-excel microsoft-powerpoint
