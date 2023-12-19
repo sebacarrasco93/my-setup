@@ -10,7 +10,10 @@ echo "Installing Homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 echo "Installing formulas"
-brew install git fish node htop nvim vim
+brew install git fish node htop nvim vim mailpit
+
+echo "Starting mailpit"
+services start mailpit
 
 echo "Configuring Git"
 git config --global init.defaultBranch main
