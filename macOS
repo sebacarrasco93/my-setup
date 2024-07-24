@@ -73,6 +73,12 @@ funcsave art
 alias pest="vendor/bin/pest"
 funcsave pest
 
+function pf
+    set -l msg (string join ' ' $argv)
+        vendor/bin/pest --filter "$msg"
+    end
+funcsave pf
+
 alias phpunit="vendor/bin/phpunit"
 funcsave phpunit
 
