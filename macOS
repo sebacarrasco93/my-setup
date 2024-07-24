@@ -59,8 +59,7 @@ alias gs="git status"
 funcsave gs
 
 function gc
-    set -l msg (string join ' ' $argv)
-        git commit -m "$msg"
+    git commit -m (string join ' ' $argv)
     end
 funcsave gc
 
