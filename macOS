@@ -58,7 +58,10 @@ funcsave gad
 alias gs="git status"
 funcsave gs
 
-alias gc="git commit -m"
+function gc
+    set -l msg (string join ' ' $argv)
+        git commit -m "$msg"
+    end
 funcsave gc
 
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
