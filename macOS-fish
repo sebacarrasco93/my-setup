@@ -5,6 +5,9 @@ fish_add_path -U $HOME/Library/Application\ Support/Herd/bin/
 
 echo "Setting aliases"
 
+alias mfs="php artisan migrate:fresh --seed"
+funcsave mfs
+
 alias nah="git reset --hard && git clean -df"
 funcsave nah
 
