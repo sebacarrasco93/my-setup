@@ -26,19 +26,25 @@ git config --global user.email sebacarrasco93@gmail.com
 git config --global user.name "Seba Carrasco Poblete"
 
 echo "Installing casks"
-brew install --cask telegram google-chrome herd visual-studio-code dbngin raycast iterm2 whatsapp macs-fan-control shottr nrlquaker-winbox paragon-ntfs sequel-ace tableplus warp postman spotify authy firefox vlc keka wireshark insomnia monitorcontrol microsoft-edge arduino-ide hot cameracontroller youtube-downloader omnidisksweeper android-file-transfer android-file-transfer imageoptim tiles 4k-video-downloaderplus brave-browser
+brew install --cask --force telegram google-chrome herd visual-studio-code dbngin raycast iterm2 whatsapp macs-fan-control shottr nrlquaker-winbox sequel-ace tableplus warp postman spotify authy firefox vlc keka wireshark insomnia monitorcontrol microsoft-edge arduino-ide hot cameracontroller youtube-downloader omnidisksweeper android-file-transfer android-file-transfer imageoptim tiles 4k-video-downloaderplus brave-browser
 
 echo "Installing MS Office Apps"
-brew install --cask microsoft-word microsoft-excel microsoft-powerpoint
+brew install --cask --force microsoft-word microsoft-excel microsoft-powerpoint
 
 echo "Installing fonts"
-brew install --cask homebrew/cask-fonts/font-cascadia-code homebrew/cask-fonts/font-jetbrains-mono-nerd-font homebrew/cask-fonts/font-fira-code-nerd-font
+brew install --cask --force homebrew/cask-fonts/font-cascadia-code homebrew/cask-fonts/font-jetbrains-mono-nerd-font homebrew/cask-fonts/font-fira-code-nerd-font
 
-echo "Installing oh-my-fish"
-curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+echo "Downloading Dvorak Spanish"
+curl -Lo ~/Library/Keyboard\ Layouts/Dvorak-Spanish.bundle.zip https://github.com/sebacarrasco93/my-setup/raw/main/extra/Dvorak-Spanish.bundle.zip
+
+echo "Unzip Dvorak Spanish"
+unzip -o ~/Library/Keyboard\ Layouts/Dvorak-Spanish.bundle.zip -d ~/Library/Keyboard\ Layouts/
+
+echo "Removing Dvorak Zip file"
+rm ~/Library/Keyboard\ Layouts/Dvorak-Spanish.bundle.zip
 
 echo "Finding fish shell location"
-fish_path=$(command -v fish)
+set fish_path=$(command -v fish)
 
 echo "Checking if fish shell is correctly installed in order to prevent errors"
 if [ -n "$fish_path" ]; then
@@ -46,69 +52,4 @@ if [ -n "$fish_path" ]; then
     eval "chsh -s $fish_path"
 fi
 
-echo "Adding Herd to Fish shell"
-fish_add_path -U $HOME/Library/Application\ Support/Herd/bin/
-
-echo "Installing eden theme"
-omf install eden
-
-echo "Setting aliases"
-
-alias nah="git reset --hard && git clean -df"
-funcsave nah
-
-alias gad="git add ."
-funcsave gad
-
-alias gs="git status"
-funcsave gs
-
-function gc
-    git commit -m (string join ' ' $argv)
-    end
-funcsave gc
-
-alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-funcsave gl
-
-alias art="php artisan"
-funcsave art
-
-alias pest="vendor/bin/pest"
-funcsave pest
-
-function pf
-    set -l msg (string join ' ' $argv)
-        vendor/bin/pest --filter "$msg"
-    end
-funcsave pf
-
-alias phpunit="vendor/bin/phpunit"
-funcsave phpunit
-
-alias p="pest"
-funcsave p
-
-alias t="phpunit"
-funcsave t
-
-alias amend="git commit --amend -m"
-funcsave amend
-
-alias gpo="git push origin"
-funcsave gpo
-
-echo "Downloading Dvorak Spanish"
-curl -Lo ~/Library/Keyboard\ Layouts/Dvorak-Spanish.bundle.zip https://github.com/sebacarrasco93/my-setup/raw/main/extra/Dvorak-Spanish.bundle.zip
-
-echo "Unzip Dvorak Spanish"
-unzip ~/Library/Keyboard\ Layouts/Dvorak-Spanish.bundle.zip -d ~/Library/Keyboard\ Layouts/
-
-echo "Removing Dvorak Zip file"
-rm ~/Library/Keyboard\ Layouts/Dvorak-Spanish.bundle.zip
-
-echo "Opening Paragon NTFS"
-open "/usr/local/Caskroom/paragon-ntfs/16/FSInstaller.app"
-
-echo "Opening fish config. You can close after customizing"
-fish_config
+curl https://raw.githubusercontent.com/sebacarrasco93/my-setup/main/macOS-fish | fish

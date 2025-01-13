@@ -1,0 +1,62 @@
+#!/bin/bash
+
+echo "Adding Herd to Fish shell"
+fish_add_path -U $HOME/Library/Application\ Support/Herd/bin/
+
+echo "Setting aliases"
+
+alias nah="git reset --hard && git clean -df"
+funcsave nah
+
+alias gad="git add ."
+funcsave gad
+
+alias gs="git status"
+funcsave gs
+
+function gc
+    git commit -m (string join ' ' $argv)
+    end
+funcsave gc
+
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+funcsave gl
+
+alias art="php artisan"
+funcsave art
+
+alias pest="vendor/bin/pest"
+funcsave pest
+
+function pf
+    set -l msg (string join ' ' $argv)
+        vendor/bin/pest --filter "$msg"
+    end
+funcsave pf
+
+alias phpunit="vendor/bin/phpunit"
+funcsave phpunit
+
+alias p="pest"
+funcsave p
+
+alias t="phpunit"
+funcsave t
+
+alias amend="git commit --amend -m"
+funcsave amend
+
+alias gpo="git push origin"
+funcsave gpo
+
+echo "Opening fish config. You can close after customizing"
+fish_config
+
+echo "Installing oh-my-fish"
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+
+echo "Adding brew path to oh-my-fish"
+omf install brew
+
+echo "Installing eden theme"
+omf install eden
