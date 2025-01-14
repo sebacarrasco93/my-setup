@@ -6,13 +6,22 @@ echo "🖥"
 echo "My setup, by @sebacarrasco93"
 echo ""
 
-echo "1/4: Enter your Git email"
+old_git_email=$(git config --global user.email)
+old_git_name=$(git config --global user.name)
+
+echo "1/4: Enter your Git email ($old_git_email)"
 read git_email
 
-echo "2/4: Enter your Git name"
+git_email="${git_email:-$old_git_email}"
+
+echo "2/4: Enter your Git name ($old_git_name)"
 read git_name
 
-echo "3/4: Enter your SSH identificator for this PC"
+git_name="${git_name:-$old_git_name}"
+
+echo "$git_name $git_email"
+
+echo "3/4: Enter your SSH identificator for this PC: Example: My Work Mac"
 read ssh_identificator
 
 echo "4/4: Generating SSH key with ed25519"
