@@ -6,6 +6,18 @@ echo "🖥"
 echo "My setup, by @sebacarrasco93"
 echo ""
 
+echo "1/4: Enter your Git email"
+read git_email
+
+echo "2/4: Enter your Git name"
+read git_name
+
+echo "3/4: Enter your SSH identificator for this PC"
+read ssh_identificator
+
+echo "4/4: Generating SSH key with ed25519"
+ssh-keygen -t ed25519 -C "$ssh_identificator"
+
 echo "Installing Homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
@@ -22,8 +34,8 @@ brew services start mailpit
 
 echo "Configuring Git"
 git config --global init.defaultBranch main
-git config --global user.email sebacarrasco93@gmail.com
-git config --global user.name "Seba Carrasco Poblete"
+git config --global user.email "$git_email"
+git config --global user.name "$git_name"
 
 echo "Installing casks"
 brew install --cask --force telegram google-chrome herd visual-studio-code dbngin raycast iterm2 whatsapp macs-fan-control shottr nrlquaker-winbox sequel-ace tableplus warp postman spotify firefox vlc keka wireshark insomnia monitorcontrol microsoft-edge arduino-ide hot cameracontroller youtube-downloader omnidisksweeper android-file-transfer android-file-transfer imageoptim tiles 4k-video-downloaderplus brave-browser speedtest-cli
