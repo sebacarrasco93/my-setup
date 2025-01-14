@@ -5,50 +5,78 @@ fish_add_path -U $HOME/Library/Application\ Support/Herd/bin/
 
 echo "Setting aliases"
 
+echo "mfs"
 alias mfs="php artisan migrate:fresh --seed"
 funcsave mfs
 
+echo "nah"
 alias nah="git reset --hard && git clean -df"
 funcsave nah
 
+echo "gad"
 alias gad="git add ."
 funcsave gad
 
+echo "gs"
 alias gs="git status"
 funcsave gs
 
+echo "c"
+function c
+    if test (count $argv) -eq 0
+        code .
+    else
+        code $argv
+    end
+end
+funcsave c
+
+echo "gc"
 function gc
     git commit -m (string join ' ' $argv)
-    end
+end
 funcsave gc
 
+echo "gl"
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 funcsave gl
 
+echo "art"
 alias art="php artisan"
 funcsave art
 
+echo "pest"
 alias pest="vendor/bin/pest"
 funcsave pest
 
+echo "pf"
 function pf
     set -l msg (string join ' ' $argv)
         vendor/bin/pest --filter "$msg"
     end
 funcsave pf
 
+echo "phpunit"
 alias phpunit="vendor/bin/phpunit"
 funcsave phpunit
 
+echo "p"
 alias p="pest"
 funcsave p
 
+echo "pp"
+alias pp="pest --parallel"
+funcsave p
+
+echo "t"
 alias t="phpunit"
 funcsave t
 
+echo "amend"
 alias amend="git commit --amend -m"
 funcsave amend
 
+echo "gpo"
 alias gpo="git push origin"
 funcsave gpo
 
