@@ -50,8 +50,13 @@ brew install --cask --force telegram google-chrome herd visual-studio-code dbngi
 echo "Installing MS Office Apps"
 brew install --cask --force microsoft-word microsoft-excel microsoft-powerpoint
 
-echo "Installing fonts"
+echo "Installing Cascadia Code, Jetbrains Mono Nerd, Fira Code fonts"
 brew install --cask --force font-cascadia-code font-jetbrains-mono-nerd-font font-fira-code-nerd-font
+
+echo "Installing Operator-Caska font"
+git clone https://github.com/Anant-mishra1729/Operator-caska-Font.git
+cp -Rf Operator-caska-Font/*.ttf ~/Library/Fonts/
+rm -Rf Operator-caska-Font/
 
 echo "Downloading Dvorak Spanish"
 curl -Lo ~/Library/Keyboard\ Layouts/Dvorak-Spanish.bundle.zip https://github.com/sebacarrasco93/my-setup/raw/main/extra/Dvorak-Spanish.bundle.zip
