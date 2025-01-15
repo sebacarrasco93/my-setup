@@ -19,8 +19,6 @@ read git_name
 
 git_name="${git_name:-$old_git_name}"
 
-echo "$git_name $git_email"
-
 echo "3/4: Enter your SSH identificator for this PC: Example: My Work Mac"
 read ssh_identificator
 
@@ -36,7 +34,7 @@ echo >> /Users/seba/.zprofile
     eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo "Installing formulaes"
-brew install git fish node pnpm htop nvim vim mailpit
+brew install git fish node pnpm htop nvim vim mailpit || true
 
 echo "Starting mailpit"
 brew services start mailpit
@@ -47,13 +45,13 @@ git config --global user.email "$git_email"
 git config --global user.name "$git_name"
 
 echo "Installing casks"
-brew install --cask --force telegram google-chrome herd visual-studio-code dbngin raycast iterm2 whatsapp macs-fan-control shottr nrlquaker-winbox sequel-ace tableplus warp postman spotify firefox vlc keka wireshark insomnia monitorcontrol microsoft-edge arduino-ide hot cameracontroller youtube-downloader omnidisksweeper android-file-transfer android-file-transfer imageoptim tiles 4k-video-downloaderplus brave-browser speedtest-cli
+brew install --cask --force telegram google-chrome herd visual-studio-code dbngin raycast iterm2 whatsapp macs-fan-control shottr nrlquaker-winbox sequel-ace tableplus warp postman spotify firefox vlc keka wireshark insomnia monitorcontrol microsoft-edge arduino-ide hot cameracontroller youtube-downloader omnidisksweeper android-file-transfer android-file-transfer imageoptim tiles 4k-video-downloaderplus brave-browser speedtest-cli slack || true
 
 echo "Installing MS Office Apps"
 brew install --cask --force microsoft-word microsoft-excel microsoft-powerpoint
 
 echo "Installing fonts"
-brew install --cask --force homebrew/cask-fonts/font-cascadia-code homebrew/cask-fonts/font-jetbrains-mono-nerd-font homebrew/cask-fonts/font-fira-code-nerd-font
+brew install --cask --force font-cascadia-code font-jetbrains-mono-nerd-font font-fira-code-nerd-font
 
 echo "Downloading Dvorak Spanish"
 curl -Lo ~/Library/Keyboard\ Layouts/Dvorak-Spanish.bundle.zip https://github.com/sebacarrasco93/my-setup/raw/main/extra/Dvorak-Spanish.bundle.zip
