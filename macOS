@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 clear
 
@@ -6,13 +6,26 @@ echo "🖥"
 echo "My setup, by @sebacarrasco93"
 echo ""
 
-old_git_email=$(git config --global user.email)
+old_git_email="$(git config --global user.email)"
 old_git_name=$(git config --global user.name)
 
-echo "1/4: Enter your Git email ($old_git_email)"
-read git_email
+while true; do
+    if [[ -n "$old_git_email" ]]; then
+        echo "1/4: Enter your Git email ($old_git_email):"
+    else
+        echo "1/4: Enter your Git email"
+    fi
+    
+    read git_email
 
-git_email="${git_email:-$old_git_email}"
+    git_email="${git_email:-$old_git_email}"
+
+    if [[ -n "$git_email" ]]; then
+        break
+    else
+        echo "Please enter a valid email"
+    fi
+done
 
 echo "2/4: Enter your Git name ($old_git_name)"
 read git_name
