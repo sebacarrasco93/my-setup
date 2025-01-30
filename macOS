@@ -38,6 +38,10 @@ read ssh_identificator
 echo "4/4: Generating SSH key with ed25519"
 ssh-keygen -t ed25519 -C "$ssh_identificator"
 
+echo "Moving Screenshots to current User folder"
+mkdir ~/Screenshots
+defaults write com.apple.screencapture location ~/Screenshots
+
 echo "Installing Homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
